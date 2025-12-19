@@ -19,13 +19,13 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "contacto@asfepa.pe",
-    href: "mailto:contacto@asfepa.pe",
+    value: "asfepa@gmail.com",
+    href: "mailto:asfepa@gmail.com",
   },
   {
     icon: MapPin,
     label: "Dirección",
-    value: "Dist. Felipe Pinglo Alva, Amazonas, Perú",
+    value: "Dist. Felipe Pinglo Alva, Región Huánuco, Perú",
     href: "#",
   },
   {
@@ -71,7 +71,7 @@ export const Contacto = () => {
             Contacto
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            ¿Listo para Probar Nuestro Café?
+            ¿Listo para Probar Nuestro Café APARY?
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
             Estamos aquí para responder tus preguntas, atender pedidos o explorar 
@@ -206,17 +206,35 @@ export const Contacto = () => {
               </div>
             </div>
 
+            {/* Alianzas */}
+            <div className="bg-background rounded-2xl p-6">
+              <h4 className="font-heading text-lg font-semibold text-foreground mb-4">
+                Nuestras Alianzas
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                  DEVIDA
+                </span>
+                <span className="px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                  AGROBANCO
+                </span>
+                <span className="px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                  ONG ECOSELVA
+                </span>
+              </div>
+            </div>
+
             {/* Map Placeholder */}
             <div className="relative rounded-2xl overflow-hidden h-64 bg-muted">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.84916296526!2d-78.0!3d-6.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDAnMDAuMCJTIDc4wrAwMCcwMC4wIlc!5e0!3m2!1ses!2spe!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.84916296526!2d-76.5!3d-9.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMzAnMDAuMCJTIDc2wrAzMCcwMC4wIlc!5e0!3m2!1ses!2spe!4v1234567890"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación de ASFEPA"
+                title="Ubicación de ASFEPA en Felipe Pinglo Alva, Huánuco"
                 className="grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>

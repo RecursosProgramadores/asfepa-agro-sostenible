@@ -8,38 +8,67 @@ import coffeeSpecialty from "@/assets/coffee-specialty.jpg";
 const products = [
   {
     name: "Café Pergamino",
-    description: "Café verde con su capa de pergamino intacta, ideal para exportación y tostadores especializados.",
+    description: "Café producido por los socios manejado con buenas prácticas agrícolas y procesos de calidad en cosecha y post cosecha.",
     image: coffeePergamino,
-    price: "S/. 12.00",
-    unit: "por kg",
-    features: ["Secado natural al sol", "Humedad controlada 11-12%", "Selección manual"],
+    price: "Según bolsa de valores",
+    unit: "por quintal",
+    features: [
+      "Cuidadosamente seleccionado y procesado",
+      "Cafés de procesos limpios",
+      "Fermentación aeróbica y anaeróbica"
+    ],
     badge: "Exportación",
   },
   {
-    name: "Café Oro",
-    description: "Granos verdes descascarillados, listos para el proceso de tostado artesanal o industrial.",
+    name: "Café Oro Verde",
+    description: "Grano de alta calidad listo para el proceso de tostado, es el resultado del trabajo cuidadoso de nuestros productores.",
     image: coffeeOro,
-    price: "S/. 18.00",
-    unit: "por kg",
-    features: ["100% Arábica", "Sin defectos", "Calibre uniforme"],
+    price: "Según bolsa de valores",
+    unit: "por quintal",
+    features: [
+      "Seleccionado por defectos primarios",
+      "Granulometría uniforme",
+      "Humedad adecuada para tostado"
+    ],
+    badge: "Premium",
+  },
+  {
+    name: "Café Tostado 1KG",
+    description: "Ideal para consumo local y comercialización. Café de especialidad con notas excepcionales.",
+    image: coffeeTostado,
+    price: "S/. 55.00",
+    unit: "por 1kg",
+    features: [
+      "Café de especialidad 80-85 puntos",
+      "Variedades Catuaí, Caturra y Geisha",
+      "Tostado artesanal"
+    ],
     badge: "Popular",
   },
   {
-    name: "Café Tostado",
-    description: "Tostado artesanal que resalta las notas de chocolate, caramelo y frutos del bosque.",
+    name: "Café Tostado y Molido 1KG",
+    description: "Presentación lista para venta directa al consumidor, ideal para ferias y puntos de comercio local.",
     image: coffeeTostado,
-    price: "S/. 35.00",
-    unit: "por 250g",
-    features: ["Tostado medio", "Notas de chocolate", "Empaque hermético"],
+    price: "S/. 60.00",
+    unit: "por 1kg",
+    features: [
+      "Café de especialidad 80-85 puntos",
+      "Variedades Catuaí, Caturra y Geisha",
+      "Listo para preparar"
+    ],
     badge: "Artesanal",
   },
   {
     name: "Café de Especialidad",
-    description: "Nuestro café premium con puntaje superior a 84 puntos, perfecto para paladares exigentes.",
+    description: "Lotes seleccionados con puntajes superiores orientados a mercados premium, concursos y microlotes.",
     image: coffeeSpecialty,
-    price: "S/. 55.00",
-    unit: "por 250g",
-    features: ["84+ puntos SCA", "Microlote", "Trazabilidad completa"],
+    price: "Consultar",
+    unit: "precio especial",
+    features: [
+      "Puntajes superiores a 85 SCA",
+      "Microlotes seleccionados",
+      "Trazabilidad completa"
+    ],
     badge: "Premium",
   },
 ];
@@ -54,17 +83,17 @@ export const Productos = () => {
             Nuestros Productos
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Café de las Alturas del Perú
+            Café de Especialidad APARY
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Ofrecemos diferentes presentaciones de nuestro café, desde el grano verde 
-            hasta el café tostado listo para disfrutar. Cada producto refleja nuestra 
-            dedicación a la calidad y sostenibilidad.
+            Ofrecemos diferentes presentaciones de nuestro café, desde el grano pergamino 
+            hasta el café tostado y molido listo para disfrutar. Cada producto refleja nuestra 
+            dedicación a la calidad, sostenibilidad y el trabajo de nuestros socios.
           </p>
         </div>
 
         {/* Products Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {products.map((product, index) => (
             <div
               key={product.name}
@@ -89,7 +118,7 @@ export const Productos = () => {
 
                 {/* Price */}
                 <div className="absolute bottom-4 left-4">
-                  <span className="font-heading text-2xl font-bold text-cream">
+                  <span className="font-heading text-xl font-bold text-cream">
                     {product.price}
                   </span>
                   <span className="text-cream/80 text-sm ml-1">
@@ -117,8 +146,8 @@ export const Productos = () => {
                   ))}
                 </ul>
 
-                <Button variant="outline" className="w-full">
-                  Consultar
+                <Button variant="outline" className="w-full" asChild>
+                  <a href="#contacto">Consultar</a>
                 </Button>
               </div>
             </div>

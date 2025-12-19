@@ -12,7 +12,7 @@ export const Hero = () => {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Plantaciones de café en las montañas de Perú"
+          alt="Plantaciones de café en las montañas de Felipe Pinglo Alva, Perú"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-coffee-dark/70 via-coffee-dark/50 to-coffee-dark/80" />
@@ -33,7 +33,7 @@ export const Hero = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cream/10 backdrop-blur-sm border border-cream/20 mb-8 animate-fade-up">
             <Leaf className="w-4 h-4 text-leaf-light" />
             <span className="text-cream text-sm font-medium">
-              Agricultura Sostenible desde 2018
+              Agricultura Sostenible desde 2024
             </span>
           </div>
 
@@ -43,11 +43,18 @@ export const Hero = () => {
             <span className="block text-leaf-light">Propósito</span>
           </h1>
 
+          {/* Brand */}
+          <div className="mb-6 animate-fade-up delay-150">
+            <span className="font-heading text-2xl sm:text-3xl text-cream/90">
+              Marca <strong className="text-leaf-light">APARY</strong>
+            </span>
+          </div>
+
           {/* Subtitle */}
           <p className="text-lg sm:text-xl text-cream/90 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up delay-200">
             Somos la Asociación Agrosostenible de Felipe Pinglo Alva. Cultivamos café 
-            de especialidad en las alturas del Perú, honrando la tierra y empoderando 
-            a nuestras comunidades.
+            de especialidad en la región Huánuco, honrando la tierra y empoderando 
+            a nuestras familias productoras.
           </p>
 
           {/* CTA Buttons */}
@@ -68,18 +75,18 @@ export const Hero = () => {
           <div className="grid grid-cols-3 gap-6 sm:gap-12 mt-16 pt-8 border-t border-cream/20 animate-fade-up delay-400">
             <div className="text-center">
               <div className="font-heading text-3xl sm:text-4xl font-bold text-cream mb-1">
-                50+
+                2024
               </div>
               <div className="text-cream/70 text-sm sm:text-base">
-                Familias Productoras
+                Año de Fundación
               </div>
             </div>
             <div className="text-center">
               <div className="font-heading text-3xl sm:text-4xl font-bold text-leaf-light mb-1">
-                1,800m
+                85+
               </div>
               <div className="text-cream/70 text-sm sm:text-base">
-                Altitud Promedio
+                Puntos SCA
               </div>
             </div>
             <div className="text-center">
@@ -87,7 +94,7 @@ export const Hero = () => {
                 100%
               </div>
               <div className="text-cream/70 text-sm sm:text-base">
-                Orgánico
+                Sostenible
               </div>
             </div>
           </div>

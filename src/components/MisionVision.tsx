@@ -1,30 +1,30 @@
-import { Target, Eye, Heart, Star, Leaf, Shield, Lightbulb } from "lucide-react";
+import { Target, Eye, Star, Leaf, Shield, Lightbulb, Heart } from "lucide-react";
 
 const values = [
   {
     icon: Star,
     title: "Calidad",
-    description: "Excelencia en cada grano que producimos",
+    description: "Productos de estándares de alta calidad, competitivos y orientados a mercados diferenciados.",
   },
   {
     icon: Heart,
     title: "Tradición",
-    description: "Honramos las prácticas ancestrales de cultivo",
+    description: "Promovemos el relevo generacional y el valor cultural de nuestra tierra, reconociendo el café como parte de nuestra identidad local.",
   },
   {
     icon: Leaf,
     title: "Sostenibilidad",
-    description: "Cuidamos la tierra para las generaciones futuras",
+    description: "Protegemos el suelo, el agua y la biodiversidad con prácticas agrícolas que garantizan un futuro saludable.",
   },
   {
     icon: Shield,
     title: "Compromiso",
-    description: "Dedicación total con nuestros productores",
+    description: "Asumimos los retos con dedicación y esfuerzo, manteniendo la convicción de que el trabajo constante es la clave del progreso.",
   },
   {
     icon: Lightbulb,
     title: "Innovación",
-    description: "Mejora continua en todos nuestros procesos",
+    description: "Buscamos nuevas técnicas, herramientas y oportunidades que permiten mejorar la productividad y adaptarnos al mercado.",
   },
 ];
 
@@ -58,11 +58,18 @@ export const MisionVision = () => {
               <h3 className="font-heading text-2xl font-bold text-foreground mb-4">
                 Nuestra Misión
               </h3>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                Producir y comercializar café de alta calidad de manera sostenible, 
-                garantizando precios justos para nuestros productores y promoviendo 
-                el desarrollo integral de las comunidades cafetaleras del distrito 
-                de Felipe Pinglo Alva.
+              <p className="text-muted-foreground leading-relaxed text-lg mb-4">
+                Contribuir al desarrollo sostenible de las familias cafetaleras y productoras de 
+                Felipe Pinglo Alva, promoviendo la agricultura responsable, la capacitación técnica, 
+                la asociatividad y la comercialización justa.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Todos los socios de ASFEPA trabajan comprometidos con la calidad del café, aplicando 
+                procesos adecuados y sostenibles para la producción de café de especialidad, que reflejan 
+                el esfuerzo, la identidad y respeto por la naturaleza. A través de la marca 
+                <strong className="text-primary"> APARY</strong>, buscamos generar valor agregado, 
+                fortalecer la economía local y mejorar la calidad de vida de nuestros socios, siempre 
+                en armonía con el medio ambiente.
               </p>
             </div>
           </div>
@@ -77,10 +84,17 @@ export const MisionVision = () => {
               <h3 className="font-heading text-2xl font-bold text-foreground mb-4">
                 Nuestra Visión
               </h3>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                Ser reconocidos como la asociación cafetalera líder de la región, 
-                posicionando la marca ASFEPA como sinónimo de calidad, sostenibilidad 
-                y comercio justo a nivel nacional e internacional para el año 2030.
+              <p className="text-muted-foreground leading-relaxed text-lg mb-4">
+                Ser una asociación líder en el desarrollo agrosostenible de la región Huánuco, reconocida 
+                por la excelencia de su café de especialidad, compromiso social y ambiental, y su capacidad 
+                para transformar el trabajo de los pequeños productores en un modelo de orgullo, progreso 
+                y sostenibilidad para las futuras generaciones.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Aspiramos a llegar a más clientes potenciales que valoren y consuman café de especialidad, 
+                posicionando el nombre de <strong className="text-primary">ASFEPA</strong> y 
+                <strong className="text-primary"> APARY</strong> en los mercados locales, nacionales e 
+                internacionales.
               </p>
             </div>
           </div>
@@ -93,7 +107,7 @@ export const MisionVision = () => {
           </h3>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {values.map((value, index) => (
             <div
               key={value.title}
@@ -106,7 +120,7 @@ export const MisionVision = () => {
               <h4 className="font-heading text-lg font-semibold text-foreground mb-2">
                 {value.title}
               </h4>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {value.description}
               </p>
             </div>
