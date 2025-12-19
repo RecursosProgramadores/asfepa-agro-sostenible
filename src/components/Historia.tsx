@@ -38,12 +38,13 @@ export const Historia = () => {
             Nuestra Historia
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            De Felipe Pinglo Alva al Mundo
+            Desde las alturas de Huánuco al Mundo
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            ASFEPA nació como una iniciativa colectiva impulsada por pequeños productores, 
-            motivados por el deseo de mejorar las condiciones de vida, fortalecer la producción 
-            agrícola y promover un modelo de desarrollo sostenible y responsable.
+            ASFEPA nació como una iniciativa colectiva impulsada por pequeños productores del 
+            centro poblado de Felipe Pinglo Alva - Luyando, motivados por el deseo de mejorar 
+            las condiciones de vida, fortalecer la producción agrícola y promover un modelo de 
+            desarrollo sostenible y responsable.
           </p>
         </div>
 

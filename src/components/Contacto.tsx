@@ -25,7 +25,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Dirección",
-    value: "Dist. Felipe Pinglo Alva, Región Huánuco, Perú",
+    value: "Centro Poblado de Felipe Pinglo Alva - Luyando, Huánuco, Perú",
     href: "#",
   },
   {
@@ -234,7 +234,7 @@ export const Contacto = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación de ASFEPA en Felipe Pinglo Alva, Huánuco"
+                title="Ubicación de ASFEPA en Centro Poblado Felipe Pinglo Alva - Luyando, Huánuco"
                 className="grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>

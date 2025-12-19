@@ -12,7 +12,7 @@ export const Hero = () => {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Plantaciones de café en las montañas de Felipe Pinglo Alva, Perú"
+          alt="Plantaciones de café en las alturas de Huánuco - Perú"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-coffee-dark/70 via-coffee-dark/50 to-coffee-dark/80" />
@@ -52,9 +52,9 @@ export const Hero = () => {
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl text-cream/90 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up delay-200">
-            Somos la Asociación Agrosostenible de Felipe Pinglo Alva. Cultivamos café 
-            de especialidad en la región Huánuco, honrando la tierra y empoderando 
-            a nuestras familias productoras.
+            Somos la Asociación Agrosostenible del centro poblado de Felipe Pinglo Alva - Luyando. 
+            Cultivamos café de especialidad en las alturas de Huánuco - Perú, honrando la tierra 
+            y empoderando a nuestras familias productoras.
           </p>
 
           {/* CTA Buttons */}

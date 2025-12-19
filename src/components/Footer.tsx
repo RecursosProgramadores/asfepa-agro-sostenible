@@ -47,8 +47,8 @@ export const Footer = () => {
               </div>
             </a>
             <p className="text-cream/70 text-sm leading-relaxed mb-6">
-              Asociación Agrosostenible de Felipe Pinglo Alva. Cultivamos café 
-              con pasión, tradición y respeto por la naturaleza.
+              Asociación Agrosostenible del centro poblado de Felipe Pinglo Alva - Luyando. 
+              Cultivamos café con pasión, tradición y respeto por la naturaleza en las alturas de Huánuco - Perú.
             </p>
           </div>
 

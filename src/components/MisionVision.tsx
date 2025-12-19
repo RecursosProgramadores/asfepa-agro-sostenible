@@ -59,9 +59,9 @@ export const MisionVision = () => {
                 Nuestra Misión
               </h3>
               <p className="text-muted-foreground leading-relaxed text-lg mb-4">
-                Contribuir al desarrollo sostenible de las familias cafetaleras y productoras de 
-                Felipe Pinglo Alva, promoviendo la agricultura responsable, la capacitación técnica, 
-                la asociatividad y la comercialización justa.
+                Contribuir al desarrollo sostenible de las familias cafetaleras y productoras del 
+                centro poblado de Felipe Pinglo Alva - Luyando, promoviendo la agricultura responsable, 
+                la capacitación técnica, la asociatividad y la comercialización justa.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Todos los socios de ASFEPA trabajan comprometidos con la calidad del café, aplicando 
@@ -92,9 +92,8 @@ export const MisionVision = () => {
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Aspiramos a llegar a más clientes potenciales que valoren y consuman café de especialidad, 
-                posicionando el nombre de <strong className="text-primary">ASFEPA</strong> y 
-                <strong className="text-primary"> APARY</strong> en los mercados locales, nacionales e 
-                internacionales.
+                posicionando nuestra marca comercial <strong className="text-primary">APARY</strong> en 
+                los mercados locales, nacionales e internacionales.
               </p>
             </div>
           </div>
