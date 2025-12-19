@@ -1,30 +1,30 @@
-import { Users, Calendar, Award, Heart } from "lucide-react";
+import { Users, Calendar, Award, Heart, Handshake, Building2 } from "lucide-react";
 import coffeeBeans from "@/assets/coffee-beans.jpg";
 
 const timelineItems = [
   {
-    year: "2018",
+    year: "2024",
     title: "Fundación de ASFEPA",
-    description: "Un grupo de productores cafeteros del distrito de Felipe Pinglo Alva se unió con el sueño de comercializar su café de manera justa y sostenible.",
+    description: "El 25 de marzo del 2024, pequeños productores de Felipe Pinglo Alva se unieron para crear la Asociación Agrosostenible, motivados por mejorar sus condiciones de vida y fortalecer la producción agrícola.",
     icon: Users,
   },
   {
-    year: "2020",
-    title: "Primera Exportación",
-    description: "Logramos nuestra primera exportación internacional, llevando el sabor único de nuestras montañas al mundo.",
+    year: "2024",
+    title: "Visión Colectiva",
+    description: "Profesionales visitaron la zona reconociendo el potencial productivo y la calidad de los productos, inspirando a los productores a organizarse formalmente.",
     icon: Award,
   },
   {
-    year: "2022",
-    title: "Certificación Orgánica",
-    description: "Obtuvimos la certificación orgánica, validando nuestro compromiso con prácticas agrícolas sostenibles.",
-    icon: Calendar,
+    year: "2024",
+    title: "Alianzas Estratégicas",
+    description: "ASFEPA estableció convenios de cooperación con DEVIDA, AGROBANCO y la ONG ECOSELVA, accediendo a asistencia técnica, financiamiento y capacitaciones.",
+    icon: Handshake,
   },
   {
     year: "2024",
-    title: "Expansión Comunitaria",
-    description: "Más de 50 familias productoras ahora forman parte de nuestra asociación, fortaleciendo nuestra comunidad.",
-    icon: Heart,
+    title: "Articulación Institucional",
+    description: "Trabajo coordinado con gobiernos locales y regional, participando en espacios de diálogo y planificación para impulsar el desarrollo productivo y social.",
+    icon: Building2,
   },
 ];
 
@@ -38,18 +38,19 @@ export const Historia = () => {
             Nuestra Historia
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            De las Montañas del Perú al Mundo
+            De Felipe Pinglo Alva al Mundo
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            ASFEPA nació del corazón de productores comprometidos con la tierra y su comunidad. 
-            Nuestra historia es un testimonio de perseverancia, tradición y amor por el café.
+            ASFEPA nació como una iniciativa colectiva impulsada por pequeños productores, 
+            motivados por el deseo de mejorar las condiciones de vida, fortalecer la producción 
+            agrícola y promover un modelo de desarrollo sostenible y responsable.
           </p>
         </div>
 
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Image */}
-          <div className="relative order-2 lg:order-1">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Story Content */}
+          <div className="order-2 lg:order-1 space-y-6">
             <div className="relative rounded-2xl overflow-hidden shadow-elevated">
               <img
                 src={coffeeBeans}
@@ -58,6 +59,32 @@ export const Historia = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-coffee-dark/40 to-transparent" />
             </div>
+            
+            {/* Story Text */}
+            <div className="bg-background rounded-2xl p-6 lg:p-8 shadow-soft">
+              <h3 className="font-heading text-xl font-bold text-foreground mb-4">
+                Nuestra Motivación
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Durante años, las familias agricultoras trabajaron de forma independiente, enfrentando 
+                dificultades como la falta de asistencia técnica especializada, la limitada articulación 
+                al mercado, bajos precios en la venta de sus productos y escasa capacidad para acceder 
+                a proyectos o programas de financiamiento.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Con la necesidad de tener mejores y mayores accesos a comercializar de manera colectiva, 
+                donde pudieran trabajar como grupo de socios y apuntar como conjunto colectivo, los 
+                productores tomaron la decisión de formar una asociación basada en la unidad, solidaridad, 
+                sostenibilidad y calidad productiva.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Desde su creación, ASFEPA ha centrado su labor en fortalecer las capacidades técnicas 
+                y organizativas de sus socios, promoviendo una producción responsable y sostenible, 
+                orientada al mercado y enfocada principalmente en el cultivo de café de calidad y 
+                especialidad bajo la marca <strong className="text-primary">APARY</strong>.
+              </p>
+            </div>
+            
             {/* Decorative Element */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-leaf-light/20 rounded-full blur-3xl" />
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
@@ -67,7 +94,7 @@ export const Historia = () => {
           <div className="order-1 lg:order-2 space-y-8">
             {timelineItems.map((item, index) => (
               <div
-                key={item.year}
+                key={`${item.year}-${item.title}`}
                 className="relative flex gap-4 group"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
