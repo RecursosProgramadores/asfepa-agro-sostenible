@@ -1,5 +1,7 @@
-import { Check } from "lucide-react";
+import { useState } from "react";
+import { Check, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ProductModal } from "./ProductModal";
 import coffeePergamino from "@/assets/coffee-pergamino.jpg";
 import coffeeOro from "@/assets/coffee-oro.jpg";
 import coffeeTostado from "@/assets/coffee-tostado.jpg";
@@ -74,26 +76,38 @@ const products = [
 ];
 
 export const Productos = () => {
+  const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = (product: typeof products[0]) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
+
   return (
     <section id="productos" className="section-padding bg-card">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             Nuestros Productos
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-4 lg:mb-6">
             Café de Especialidad APARY
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
+          <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
             Ofrecemos diferentes presentaciones de nuestro café, desde el grano pergamino 
-            hasta el café tostado y molido listo para disfrutar. Cada producto refleja nuestra 
-            dedicación a la calidad, sostenibilidad y el trabajo de nuestros socios.
+            hasta el café tostado y molido listo para disfrutar.
           </p>
         </div>
 
         {/* Products Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {products.map((product, index) => (
             <div
               key={product.name}
@@ -101,7 +115,7 @@ export const Productos = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Image */}
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-48 sm:h-56 overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -110,44 +124,49 @@ export const Productos = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-coffee-dark/60 to-transparent" />
                 
                 {/* Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-leaf-light text-cream text-xs font-semibold shadow-soft">
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                  <span className="px-2 py-1 sm:px-3 rounded-full bg-leaf-light text-cream text-xs font-semibold shadow-soft">
                     {product.badge}
                   </span>
                 </div>
 
                 {/* Price */}
-                <div className="absolute bottom-4 left-4">
-                  <span className="font-heading text-xl font-bold text-cream">
+                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
+                  <span className="font-heading text-lg sm:text-xl font-bold text-cream">
                     {product.price}
                   </span>
-                  <span className="text-cream/80 text-sm ml-1">
+                  <span className="text-cream/80 text-xs sm:text-sm ml-1">
                     {product.unit}
                   </span>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="font-heading text-xl font-bold text-foreground mb-2">
+              <div className="p-4 sm:p-6">
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground mb-2">
                   {product.name}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                <p className="text-muted-foreground text-xs sm:text-sm mb-4 leading-relaxed line-clamp-2">
                   {product.description}
                 </p>
 
                 {/* Features */}
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
                   {product.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm text-foreground">
-                      <Check className="w-4 h-4 text-leaf-light flex-shrink-0" />
+                    <li key={feature} className="flex items-center gap-2 text-xs sm:text-sm text-foreground">
+                      <Check className="w-3 h-3 sm:w-4 sm:h-4 text-leaf-light flex-shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
 
-                <Button variant="outline" className="w-full" asChild>
-                  <a href="#contacto">Consultar</a>
+                <Button 
+                  variant="default" 
+                  className="w-full gap-2"
+                  onClick={() => handleOpenModal(product)}
+                >
+                  <ShoppingBag className="w-4 h-4" />
+                  Adquirir
                 </Button>
               </div>
             </div>
@@ -155,17 +174,23 @@ export const Productos = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">
+        <div className="text-center mt-8 lg:mt-12">
+          <p className="text-muted-foreground mb-4 text-sm sm:text-base">
             ¿Interesado en compras al por mayor o exportación?
           </p>
-          <Button variant="default" size="lg" asChild>
-            <a href="#contacto">
+          <Button variant="outline" size="lg" asChild>
+            <a href="https://wa.me/51930572244?text=Hola%2C%20me%20interesa%20una%20cotizaci%C3%B3n%20al%20por%20mayor" target="_blank" rel="noopener noreferrer">
               Solicitar Cotización
             </a>
           </Button>
         </div>
       </div>
+
+      <ProductModal 
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        product={selectedProduct}
+      />
     </section>
   );
 };
