@@ -1,4 +1,5 @@
-import { Leaf, Heart, ArrowUp } from "lucide-react";
+import { Heart, ArrowUp } from "lucide-react";
+import logoApary from "@/assets/logo-apary.png";
 
 const footerLinks = {
   empresa: [
@@ -34,12 +35,14 @@ export const Footer = () => {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <a href="#inicio" className="flex items-center gap-3 mb-6 group">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-leaf-dark to-leaf-light flex items-center justify-center shadow-soft group-hover:shadow-glow transition-all duration-300">
-                <Leaf className="w-6 h-6 text-cream" />
-              </div>
+              <img 
+                src={logoApary} 
+                alt="APARY - Café Sostenible" 
+                className="w-14 h-14 rounded-full shadow-soft group-hover:shadow-glow transition-all duration-300 object-cover"
+              />
               <div className="flex flex-col">
                 <span className="font-heading text-xl font-bold text-cream">
-                  ASFEPA
+                  APARY
                 </span>
                 <span className="text-xs text-cream/70">
                   Café Sostenible
