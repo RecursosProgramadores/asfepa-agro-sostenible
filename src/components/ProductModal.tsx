@@ -46,43 +46,58 @@ export const ProductModal = ({ isOpen, onClose, product }: ProductModalProps) =>
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle className="font-heading text-xl">{product.name}</DialogTitle>
-          <DialogDescription>
+      <DialogContent className="w-[calc(100%-2rem)] max-w-md mx-auto rounded-xl sm:rounded-lg p-4 sm:p-6">
+        <DialogHeader className="text-center sm:text-left space-y-2">
+          <DialogTitle className="font-heading text-lg sm:text-xl text-foreground">
+            {product.name}
+          </DialogTitle>
+          <DialogDescription className="text-sm sm:text-base text-primary font-semibold">
             {product.price} {product.unit}
           </DialogDescription>
         </DialogHeader>
 
-        <div className="py-6">
-          <label className="block text-sm font-medium text-foreground mb-3">
-            Cantidad
+        <div className="py-4 sm:py-6">
+          <label className="block text-sm font-medium text-foreground mb-3 text-center">
+            Selecciona la cantidad
           </label>
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-3 sm:gap-4">
             <Button
               variant="outline"
               size="icon"
               onClick={handleDecrement}
               disabled={quantity <= 1}
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full"
             >
-              <Minus className="w-4 h-4" />
+              <Minus className="w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
-            <span className="font-heading text-3xl font-bold text-foreground w-16 text-center">
+            <span className="font-heading text-2xl sm:text-3xl font-bold text-foreground w-14 sm:w-16 text-center">
               {quantity}
             </span>
-            <Button variant="outline" size="icon" onClick={handleIncrement}>
-              <Plus className="w-4 h-4" />
+            <Button 
+              variant="outline" 
+              size="icon" 
+              onClick={handleIncrement}
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full"
+            >
+              <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
           </div>
         </div>
 
-        <DialogFooter>
-          <Button variant="outline" onClick={onClose}>
+        <DialogFooter className="flex flex-col-reverse sm:flex-row gap-2 sm:gap-3">
+          <Button 
+            variant="outline" 
+            onClick={onClose} 
+            className="w-full sm:w-auto"
+          >
             Cancelar
           </Button>
-          <Button onClick={handleWhatsAppOrder} className="gap-2">
+          <Button 
+            onClick={handleWhatsAppOrder} 
+            className="w-full sm:w-auto gap-2"
+          >
             <ShoppingBag className="w-4 h-4" />
-            Enviar Pedido por WhatsApp
+            <span className="text-sm sm:text-base">Enviar por WhatsApp</span>
           </Button>
         </DialogFooter>
       </DialogContent>
