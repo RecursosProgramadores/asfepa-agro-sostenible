@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Leaf } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoApary from "@/assets/logo-apary.png";
 
 const navItems = [
   { label: "Inicio", href: "#inicio" },
@@ -35,12 +36,14 @@ export const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-leaf-dark to-leaf-light flex items-center justify-center shadow-soft group-hover:shadow-glow transition-all duration-300">
-              <Leaf className="w-6 h-6 text-cream" />
-            </div>
+            <img 
+              src={logoApary} 
+              alt="APARY - Café Sostenible" 
+              className="w-14 h-14 rounded-full shadow-soft group-hover:shadow-glow transition-all duration-300 object-cover"
+            />
             <div className="flex flex-col">
               <span className={`font-heading text-xl font-bold transition-colors duration-300 ${isScrolled ? 'text-primary' : 'text-cream'}`}>
-                ASFEPA
+                APARY
               </span>
               <span className={`text-xs font-body transition-colors duration-300 ${isScrolled ? 'text-muted-foreground' : 'text-cream/80'}`}>
                 Café Sostenible
