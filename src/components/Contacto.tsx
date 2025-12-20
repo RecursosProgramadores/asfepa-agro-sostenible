@@ -7,14 +7,14 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Teléfono",
-    value: "+51 999 888 777",
-    href: "tel:+51999888777",
+    value: "+51 930 572 244",
+    href: "tel:+51930572244",
   },
   {
     icon: MessageCircle,
     label: "WhatsApp",
-    value: "+51 999 888 777",
-    href: "https://wa.me/51999888777",
+    value: "+51 930 572 244",
+    href: "https://wa.me/51930572244",
   },
   {
     icon: Mail,
@@ -39,7 +39,7 @@ const contactInfo = [
 const socialLinks = [
   { icon: Facebook, href: "https://facebook.com/asfepa", label: "Facebook" },
   { icon: Instagram, href: "https://instagram.com/asfepa", label: "Instagram" },
-  { icon: MessageCircle, href: "https://wa.me/51999888777", label: "WhatsApp" },
+  { icon: MessageCircle, href: "https://wa.me/51930572244", label: "WhatsApp" },
 ];
 
 export const Contacto = () => {
