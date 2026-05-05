@@ -1,13 +1,9 @@
 import { useState } from "react";
-import { Minus, Plus, ShoppingBag } from "lucide-react";
+import { Minus, Plus, ShoppingBag, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
 } from "@/components/ui/dialog";
 
 interface ProductModalProps {
@@ -15,6 +11,8 @@ interface ProductModalProps {
   onClose: () => void;
   product: {
     name: string;
+    description: string;
+    image: string;
     price: string;
     unit: string;
   } | null;
@@ -30,11 +28,15 @@ export const ProductModal = ({ isOpen, onClose, product }: ProductModalProps) =>
     if (!product) return;
     
     const message = encodeURIComponent(
-      `¡Hola! Me interesa adquirir:\n\n` +
-      `📦 Producto: ${product.name}\n` +
-      `💰 Precio: ${product.price} ${product.unit}\n` +
-      `🔢 Cantidad: ${quantity}\n\n` +
-      `Por favor, quisiera más información para realizar mi pedido.`
+      `¡Hola APARY! ☕\n\n` +
+      `Me interesa adquirir el siguiente producto:\n` +
+      `--------------------------------\n` +
+      `📦 *Producto:* ${product.name}\n` +
+      `💰 *Precio:* ${product.price} (${product.unit})\n` +
+      `🔢 *Cantidad:* ${quantity}\n` +
+      `--------------------------------\n` +
+      `Por favor, quisiera coordinar los detalles del pedido y el envío.\n\n` +
+      `¡Muchas gracias! 🙌`
     );
     
     window.open(`https://wa.me/51930572244?text=${message}`, "_blank");
@@ -46,60 +48,98 @@ export const ProductModal = ({ isOpen, onClose, product }: ProductModalProps) =>
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-[calc(100%-2rem)] max-w-md mx-auto rounded-xl sm:rounded-lg p-4 sm:p-6">
-        <DialogHeader className="text-center sm:text-left space-y-2">
-          <DialogTitle className="font-heading text-lg sm:text-xl text-foreground">
-            {product.name}
-          </DialogTitle>
-          <DialogDescription className="text-sm sm:text-base text-primary font-semibold">
-            {product.price} {product.unit}
-          </DialogDescription>
-        </DialogHeader>
+      <DialogContent className="max-w-4xl p-0 overflow-hidden border-none bg-background rounded-3xl shadow-elevated">
+        <div className="grid lg:grid-cols-2">
+          {/* Image Side */}
+          <div className="relative h-64 lg:h-auto bg-muted/30">
+            <img 
+              src={product.image} 
+              alt={product.name}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            <button 
+              onClick={onClose}
+              className="absolute top-4 left-4 lg:hidden w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-foreground shadow-sm"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
 
-        <div className="py-4 sm:py-6">
-          <label className="block text-sm font-medium text-foreground mb-3 text-center">
-            Selecciona la cantidad
-          </label>
-          <div className="flex items-center justify-center gap-3 sm:gap-4">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={handleDecrement}
-              disabled={quantity <= 1}
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full"
-            >
-              <Minus className="w-4 h-4 sm:w-5 sm:h-5" />
-            </Button>
-            <span className="font-heading text-2xl sm:text-3xl font-bold text-foreground w-14 sm:w-16 text-center">
-              {quantity}
-            </span>
-            <Button 
-              variant="outline" 
-              size="icon" 
-              onClick={handleIncrement}
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full"
-            >
-              <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
-            </Button>
+          {/* Content Side */}
+          <div className="p-8 lg:p-12 flex flex-col">
+            <div className="flex-1 space-y-6">
+              <div>
+                <span className="text-primary font-bold text-sm tracking-wider uppercase">
+                  Detalles del Producto
+                </span>
+                <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mt-2">
+                  {product.name}
+                </h2>
+                <div className="flex items-center gap-2 mt-4">
+                  <span className="text-2xl font-bold text-primary">{product.price}</span>
+                  <span className="text-muted-foreground">{product.unit}</span>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-muted-foreground leading-relaxed">
+                  {product.description}
+                </p>
+                <div className="h-px bg-border w-full" />
+              </div>
+
+              <div className="space-y-4">
+                <label className="text-sm font-bold text-foreground uppercase tracking-tight">
+                  Cantidad a solicitar
+                </label>
+                <div className="flex items-center gap-6">
+                  <div className="flex items-center bg-muted/50 rounded-2xl p-1 border border-border">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={handleDecrement}
+                      disabled={quantity <= 1}
+                      className="w-10 h-10 rounded-xl hover:bg-white hover:shadow-sm"
+                    >
+                      <Minus className="w-4 h-4" />
+                    </Button>
+                    <span className="font-heading text-xl font-bold text-foreground w-12 text-center">
+                      {quantity}
+                    </span>
+                    <Button 
+                      variant="ghost" 
+                      size="icon" 
+                      onClick={handleIncrement}
+                      className="w-10 h-10 rounded-xl hover:bg-white hover:shadow-sm"
+                    >
+                      <Plus className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 md:mt-12 space-y-3">
+              <Button 
+                onClick={handleWhatsAppOrder} 
+                size="lg"
+                className="w-full gap-3 shadow-glow h-14"
+              >
+                <ShoppingBag className="w-5 h-5" />
+                Realizar Pedido por WhatsApp
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                onClick={onClose} 
+                className="w-full h-14 border-2"
+              >
+                Cerrar Ventana
+              </Button>
+            </div>
           </div>
         </div>
-
-        <DialogFooter className="flex flex-col-reverse sm:flex-row gap-2 sm:gap-3">
-          <Button 
-            variant="outline" 
-            onClick={onClose} 
-            className="w-full sm:w-auto"
-          >
-            Cancelar
-          </Button>
-          <Button 
-            onClick={handleWhatsAppOrder} 
-            className="w-full sm:w-auto gap-2"
-          >
-            <ShoppingBag className="w-4 h-4" />
-            <span className="text-sm sm:text-base">Enviar por WhatsApp</span>
-          </Button>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

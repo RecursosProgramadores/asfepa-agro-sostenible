@@ -76,13 +76,13 @@ export const Galeria = () => {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
           {galleryImages.map((image, index) => (
             <button
               key={index}
               onClick={() => openLightbox(index)}
               className={`group relative overflow-hidden rounded-2xl shadow-soft hover:shadow-elevated transition-all duration-300 card-hover ${
-                index === 0 ? "md:col-span-2 md:row-span-2" : ""
+                index === 0 ? "sm:col-span-2 md:row-span-2" : ""
               }`}
             >
               <div className={`${index === 0 ? "aspect-[4/3]" : "aspect-square"}`}>

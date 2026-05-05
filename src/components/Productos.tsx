@@ -2,16 +2,13 @@ import { useState } from "react";
 import { Check, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProductModal } from "./ProductModal";
-import coffeePergamino from "@/assets/coffee-pergamino.jpg";
-import coffeeOro from "@/assets/coffee-oro.jpg";
-import coffeeTostado from "@/assets/coffee-tostado.jpg";
-import coffeeSpecialty from "@/assets/coffee-specialty.jpg";
+import productoImg from "@/assets/producto.png";
 
 const products = [
   {
     name: "Café Pergamino",
     description: "Café producido por los socios manejado con buenas prácticas agrícolas y procesos de calidad en cosecha y post cosecha.",
-    image: coffeePergamino,
+    image: productoImg,
     price: "Según bolsa de valores",
     unit: "por quintal",
     features: [
@@ -24,7 +21,7 @@ const products = [
   {
     name: "Café Oro Verde",
     description: "Grano de alta calidad listo para el proceso de tostado, es el resultado del trabajo cuidadoso de nuestros productores.",
-    image: coffeeOro,
+    image: productoImg,
     price: "Según bolsa de valores",
     unit: "por quintal",
     features: [
@@ -37,7 +34,7 @@ const products = [
   {
     name: "Café Tostado 1KG",
     description: "Ideal para consumo local y comercialización. Café de especialidad con notas excepcionales.",
-    image: coffeeTostado,
+    image: productoImg,
     price: "S/. 55.00",
     unit: "por 1kg",
     features: [
@@ -50,7 +47,7 @@ const products = [
   {
     name: "Café Tostado y Molido 1KG",
     description: "Presentación lista para venta directa al consumidor, ideal para ferias y puntos de comercio local.",
-    image: coffeeTostado,
+    image: productoImg,
     price: "S/. 60.00",
     unit: "por 1kg",
     features: [
@@ -63,7 +60,7 @@ const products = [
   {
     name: "Café de Especialidad",
     description: "Lotes seleccionados con puntajes superiores orientados a mercados premium, concursos y microlotes.",
-    image: coffeeSpecialty,
+    image: productoImg,
     price: "Consultar",
     unit: "precio especial",
     features: [

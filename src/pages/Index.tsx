@@ -1,26 +1,34 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { Historia } from "@/components/Historia";
-import { MisionVision } from "@/components/MisionVision";
-import { Productos } from "@/components/Productos";
-import { Galeria } from "@/components/Galeria";
+import { NosotrosSummary } from "@/components/NosotrosSummary";
+import { ProductosSummary } from "@/components/ProductosSummary";
 import { Testimonios } from "@/components/Testimonios";
-import { Contacto } from "@/components/Contacto";
+import { CTAModerno } from "@/components/CTAModerno";
 import { Footer } from "@/components/Footer";
+import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Index = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <main className="min-h-screen">
+    <>
+      <Helmet>
+        <title>APARY | Café de Especialidad Sostenible del Perú</title>
+        <meta name="description" content="Descubre APARY, café de especialidad cultivado en las alturas de Huánuco. Asociación Agrosostenible dedicada a la calidad y el comercio justo." />
+      </Helmet>
       <Header />
-      <Hero />
-      <Historia />
-      <MisionVision />
-      <Productos />
-      <Galeria />
-      <Testimonios />
-      <Contacto />
+      <main className="min-h-screen page-enter">
+        <Hero />
+        <NosotrosSummary />
+        <ProductosSummary />
+        <Testimonios />
+        <CTAModerno />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 };
 

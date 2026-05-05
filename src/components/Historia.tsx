@@ -1,5 +1,5 @@
 import { Users, Calendar, Award, Heart, Handshake, Building2 } from "lucide-react";
-import coffeeBeans from "@/assets/coffee-beans.jpg";
+import coffeeBeans from "@/assets/nosotros.png";
 
 const timelineItems = [
   {
@@ -51,7 +51,7 @@ export const Historia = () => {
         {/* Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Story Content */}
-          <div className="order-2 lg:order-1 space-y-6">
+          <div className="order-2 lg:order-1 space-y-6 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-elevated">
               <img
                 src={coffeeBeans}
@@ -62,7 +62,7 @@ export const Historia = () => {
             </div>
             
             {/* Story Text */}
-            <div className="bg-background rounded-2xl p-6 lg:p-8 shadow-soft">
+            <div className="bg-background rounded-2xl p-6 lg:p-8 shadow-soft relative z-10">
               <h3 className="font-heading text-xl font-bold text-foreground mb-4">
                 Nuestra Motivación
               </h3>
@@ -87,8 +87,8 @@ export const Historia = () => {
             </div>
             
             {/* Decorative Element */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-leaf-light/20 rounded-full blur-3xl" />
-            <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-leaf-light/20 rounded-full blur-3xl z-0" />
+            <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/20 rounded-full blur-2xl z-0" />
           </div>
 
           {/* Timeline */}

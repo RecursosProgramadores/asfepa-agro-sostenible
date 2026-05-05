@@ -50,12 +50,36 @@ export const Contacto = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      nombre: formData.get("nombre"),
+      telefono: formData.get("telefono"),
+      email: formData.get("email"),
+      asunto: formData.get("asunto"),
+      mensaje: formData.get("mensaje"),
+    };
+
+    const whatsappMessage = encodeURIComponent(
+      `¡Hola APARY! ☕\n\n` +
+      `He enviado un mensaje desde el sitio web:\n` +
+      `--------------------------------\n` +
+      `👤 *Nombre:* ${data.nombre}\n` +
+      `📞 *Teléfono:* ${data.telefono}\n` +
+      `📧 *Email:* ${data.email}\n` +
+      `📝 *Asunto:* ${data.asunto}\n` +
+      `💬 *Mensaje:* ${data.mensaje}\n` +
+      `--------------------------------\n` +
+      `Quedo a la espera de su respuesta. ¡Gracias!`
+    );
+
+    // Simulate a small delay for UX
+    await new Promise(resolve => setTimeout(resolve, 800));
+    
+    window.open(`https://wa.me/51930572244?text=${whatsappMessage}`, "_blank");
     
     toast({
-      title: "¡Mensaje enviado!",
-      description: "Nos pondremos en contacto contigo pronto.",
+      title: "Redirigiendo a WhatsApp",
+      description: "Estamos abriendo el chat para enviar tu mensaje.",
     });
     
     setIsSubmitting(false);
@@ -90,7 +114,7 @@ export const Contacto = () => {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="nombre" className="block text-sm font-medium text-foreground mb-2">
-                    Nombre
+                    Nombre Completo
                   </label>
                   <input
                     type="text"
@@ -102,23 +126,37 @@ export const Contacto = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email
+                  <label htmlFor="telefono" className="block text-sm font-medium text-foreground mb-2">
+                    Teléfono / WhatsApp
                   </label>
                   <input
-                    type="email"
-                    id="email"
-                    name="email"
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
                     required
                     className="w-full px-4 py-3 rounded-lg bg-card border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-foreground"
-                    placeholder="tu@email.com"
+                    placeholder="Ej: +51 987 654 321"
                   />
                 </div>
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                  Correo Electrónico
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full px-4 py-3 rounded-lg bg-card border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-foreground"
+                  placeholder="tu@email.com"
+                />
               </div>
               
               <div>
                 <label htmlFor="asunto" className="block text-sm font-medium text-foreground mb-2">
-                  Asunto
+                  Asunto de la Consulta
                 </label>
                 <input
                   type="text"
@@ -132,7 +170,7 @@ export const Contacto = () => {
               
               <div>
                 <label htmlFor="mensaje" className="block text-sm font-medium text-foreground mb-2">
-                  Mensaje
+                  Mensaje Detallado
                 </label>
                 <textarea
                   id="mensaje"
@@ -140,20 +178,20 @@ export const Contacto = () => {
                   rows={5}
                   required
                   className="w-full px-4 py-3 rounded-lg bg-card border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none text-foreground"
-                  placeholder="Cuéntanos más sobre tu consulta..."
+                  placeholder="Escribe aquí tu consulta..."
                 />
               </div>
               
-              <Button type="submit" variant="default" size="lg" className="w-full" disabled={isSubmitting}>
+              <Button type="submit" variant="default" size="lg" className="w-full shadow-glow" disabled={isSubmitting}>
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">
                     <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                    Enviando...
+                    Redirigiendo...
                   </span>
                 ) : (
                   <span className="flex items-center gap-2">
-                    <Send className="w-4 h-4" />
-                    Enviar Mensaje
+                    <MessageCircle className="w-4 h-4" />
+                    Enviar a WhatsApp
                   </span>
                 )}
               </Button>
