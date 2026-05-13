@@ -4,6 +4,7 @@ import { Productos } from "@/components/Productos";
 import { Footer } from "@/components/Footer";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import productosHero from "@/assets/PRODUCTOS.jpg";
 
 const ProductosPage = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const ProductosPage = () => {
         <PageHero 
           title="Nuestros Productos" 
           subtitle="Selección premium de café cultivado con prácticas sostenibles y pasión tradicional."
+          backgroundImage={productosHero}
         />
         <Productos />
       </main>

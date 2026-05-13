@@ -65,7 +65,7 @@ export const Header = () => {
               >
                 <Link
                   to={item.href}
-                  className={`px-4 py-2 rounded-lg font-bold text-sm transition-all duration-300 flex items-center gap-1 ${
+                  className={`px-4 py-2 rounded-lg font-bold text-lg transition-all duration-300 flex items-center gap-1 ${
                     isActive(item.href)
                       ? "text-primary bg-primary/5"
                       : "text-black hover:text-primary"
@@ -75,7 +75,7 @@ export const Header = () => {
                 </Link>
               </div>
             ))}
-            <Button variant="default" size="sm" className="ml-4 shadow-soft" asChild>
+            <Button variant="default" size="default" className="ml-4 shadow-soft text-base font-bold" asChild>
               <Link to="/contacto">Contáctanos</Link>
             </Button>
           </nav>
@@ -95,8 +95,7 @@ export const Header = () => {
       <div
         className={`lg:hidden fixed inset-0 z-40 bg-white transition-all duration-500 ease-in-out ${
           isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
-        }`}
-        style={{ top: headerActive ? (window.innerWidth < 640 ? '64px' : '72px') : '80px' }}
+        } ${headerActive ? "top-[64px] sm:top-[72px]" : "top-[80px]"}`}
       >
         <nav className="h-full overflow-y-auto py-12 px-6 flex flex-col gap-6">
           {navItems.map((item, index) => (

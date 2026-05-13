@@ -3,27 +3,28 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
 import productoImg from "@/assets/producto.png";
 
+import imgPergamino from "@/assets/PRODUCTOS/CAFEPERGAMINOSECO.png";
+import imgOroVerde from "@/assets/PRODUCTOS/CAFEOROVERDE.png";
+import imgTostadoMolido from "@/assets/PRODUCTOS/CAFETOSTADOYMOLIDO.png";
+
 const featuredProducts = [
   {
     id: 1,
-    name: "Café de Especialidad - Alturas",
-    description: "Notas frutales y un cuerpo balanceado, cultivado a más de 1800 msnm.",
-    image: productoImg,
-    price: "S/ 35.00"
+    name: "Café Tostado y Molido",
+    description: "Presentación lista para venta directa al consumidor, ideal para ferias y puntos de comercio local.",
+    image: imgTostadoMolido,
   },
   {
     id: 2,
-    name: "Café Tostado Artesanal",
-    description: "Tostado medio que resalta la dulzura natural del grano huánuqueno.",
-    image: productoImg,
-    price: "S/ 28.00"
+    name: "Café Oro Verde",
+    description: "Grano de alta calidad listo para el proceso de tostado, es el resultado del trabajo cuidadoso de nuestros productores.",
+    image: imgOroVerde,
   },
   {
     id: 3,
-    name: "Café Oro Seleccionado",
-    description: "Grano verde de exportación, seleccionado manualmente para máxima pureza.",
-    image: productoImg,
-    price: "S/ 45.00"
+    name: "Café Pergamino Seco",
+    description: "Café producido con buenas prácticas agrícolas y procesos de calidad en cosecha y postcosecha.",
+    image: imgPergamino,
   }
 ];
 
@@ -58,12 +59,13 @@ export const ProductosSummary = () => {
               className="group bg-background rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500 animate-fade-up"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="relative aspect-[4/5] overflow-hidden bg-muted/20 p-6 flex items-center justify-center">
                 <img 
                   src={product.image} 
                   alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
                   <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
                   <span className="text-[10px] font-bold text-foreground">TOP VENTAS</span>
@@ -76,10 +78,11 @@ export const ProductosSummary = () => {
                 <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                   {product.description}
                 </p>
-                <div className="flex items-center justify-between mt-auto">
-                  <span className="text-primary font-bold text-lg">{product.price}</span>
-                  <Button size="sm" variant="outline" asChild>
-                    <Link to="/productos">Detalles</Link>
+                <div className="flex items-center justify-center mt-auto pt-4">
+                  <Button size="sm" variant="default" className="w-full shadow-glow" asChild>
+                    <a href={`https://wa.me/51930572244?text=¡Hola APARY!%20Me%20interesa%20adquirir%20el%20producto:%20${encodeURIComponent(product.name)}`} target="_blank" rel="noopener noreferrer">
+                      Adquirir por WhatsApp
+                    </a>
                   </Button>
                 </div>
               </div>

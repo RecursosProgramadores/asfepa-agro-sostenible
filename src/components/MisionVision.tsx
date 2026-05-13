@@ -37,7 +37,7 @@ export const MisionVision = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16 reveal">
           <span className="inline-block px-4 py-1.5 rounded-full bg-secondary text-secondary-foreground text-sm font-medium mb-4">
             Nuestro Propósito
           </span>
@@ -47,9 +47,9 @@ export const MisionVision = () => {
         </div>
 
         {/* Mission & Vision Cards */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-12 md:mb-20">
           {/* Mission Card */}
-          <div className="group relative bg-card rounded-2xl p-8 lg:p-10 shadow-soft hover:shadow-elevated transition-all duration-300 card-hover overflow-hidden">
+          <div className="group relative bg-card rounded-2xl p-8 lg:p-10 shadow-soft hover:shadow-elevated transition-all duration-300 card-hover overflow-hidden reveal">
             <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-leaf-dark/10 to-transparent rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
             <div className="relative">
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-leaf-dark to-leaf-light flex items-center justify-center mb-6 shadow-soft group-hover:shadow-glow transition-all duration-300">
@@ -75,7 +75,7 @@ export const MisionVision = () => {
           </div>
 
           {/* Vision Card */}
-          <div className="group relative bg-card rounded-2xl p-8 lg:p-10 shadow-soft hover:shadow-elevated transition-all duration-300 card-hover overflow-hidden">
+          <div className="group relative bg-card rounded-2xl p-8 lg:p-10 shadow-soft hover:shadow-elevated transition-all duration-300 card-hover overflow-hidden reveal">
             <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
             <div className="relative">
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-coffee-dark flex items-center justify-center mb-6 shadow-soft group-hover:shadow-elevated transition-all duration-300">
@@ -100,13 +100,13 @@ export const MisionVision = () => {
         </div>
 
         {/* Values */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 reveal">
           <h3 className="font-heading text-2xl sm:text-3xl font-bold text-foreground">
             Nuestros Valores
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 reveal-stagger">
           {values.map((value, index) => (
             <div
               key={value.title}

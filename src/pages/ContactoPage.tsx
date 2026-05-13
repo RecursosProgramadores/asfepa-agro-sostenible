@@ -4,6 +4,7 @@ import { Contacto } from "@/components/Contacto";
 import { Footer } from "@/components/Footer";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import contactoHero from "@/assets/CONTACTANOS.jpg";
 
 const ContactoPage = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const ContactoPage = () => {
         <PageHero 
           title="Contáctanos" 
           subtitle="¿Tienes dudas o quieres realizar un pedido? Nuestro equipo está listo para ayudarte."
+          backgroundImage={contactoHero}
         />
         <Contacto />
       </main>

@@ -6,6 +6,7 @@ import { Galeria } from "@/components/Galeria";
 import { Footer } from "@/components/Footer";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import nosotrosHero from "@/assets/NOSOTROS.jpg";
 
 const Nosotros = () => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const Nosotros = () => {
         <PageHero 
           title="Nosotros" 
           subtitle="Conoce el origen, la pasión y el compromiso de las familias cafetaleras de ASFEPA."
+          backgroundImage={nosotrosHero}
         />
         <Historia />
         <MisionVision />

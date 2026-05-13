@@ -30,10 +30,10 @@ const timelineItems = [
 
 export const Historia = () => {
   return (
-    <section id="historia" className="section-padding bg-card">
+    <section id="historia" className="section-padding bg-card overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16 reveal">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             Nuestra Historia
           </span>
@@ -49,9 +49,9 @@ export const Historia = () => {
         </div>
 
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Story Content */}
-          <div className="order-2 lg:order-1 space-y-6 relative">
+          <div className="order-2 lg:order-1 space-y-6 relative reveal">
             <div className="relative rounded-2xl overflow-hidden shadow-elevated">
               <img
                 src={coffeeBeans}
@@ -92,7 +92,7 @@ export const Historia = () => {
           </div>
 
           {/* Timeline */}
-          <div className="order-1 lg:order-2 space-y-8">
+          <div className="order-1 lg:order-2 space-y-8 reveal-stagger">
             {timelineItems.map((item, index) => (
               <div
                 key={`${item.year}-${item.title}`}

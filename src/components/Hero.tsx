@@ -8,7 +8,7 @@ export const Hero = () => {
     <>
       <section
         id="inicio"
-        className="relative h-[85vh] flex items-start justify-center overflow-hidden pt-[15vh]"
+        className="relative h-[50vh] sm:h-[85vh] flex items-start justify-center overflow-hidden"
       >
         {/* Background Image */}
         <div className="absolute inset-0">
@@ -21,24 +21,13 @@ export const Hero = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         </div>
 
-        {/* Content - Only the main phrase */}
+        {/* Content removed as requested */}
         <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-white leading-tight mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)] animate-fade-up">
-              Café con
-              <span className="block text-[#125B32] drop-shadow-[0_1px_5px_rgba(255,255,255,0.5)]">Propósito</span>
-            </h1>
-            <div className="animate-fade-up delay-200">
-              <span className="font-heading text-2xl sm:text-3xl text-black tracking-[0.2em] uppercase font-black drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
-                Marca <strong className="text-[#125B32]">APARY</strong>
-              </span>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Hero Stats Section - Directly below the image */}
-      <section className="bg-white py-8 border-b border-border">
+      <section className="bg-white py-8 border-b border-border reveal">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:divide-x divide-border">
             <div className="text-center">
@@ -60,7 +49,7 @@ export const Hero = () => {
       {/* Hero Details Section */}
       <section className="bg-background py-16 sm:py-20 border-b border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center space-y-12">
+          <div className="max-w-4xl mx-auto text-center space-y-12 reveal">
             
             {/* Description & Badge */}
             <div className="space-y-6">

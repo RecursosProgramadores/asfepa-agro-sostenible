@@ -1,6 +1,7 @@
-import { Heart, ArrowUp, Facebook, Instagram, MessageCircle } from "lucide-react";
+import { Heart, ArrowUp, Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoApary from "@/assets/logo-apary.png";
+import whatsappIcon from "@/assets/whatsapp.svg";
 
 const footerLinks = {
   navegacion: [
@@ -23,7 +24,7 @@ const footerLinks = {
 const socialLinks = [
   { icon: Facebook, href: "https://facebook.com/asfepa", label: "Facebook" },
   { icon: Instagram, href: "https://instagram.com/asfepa", label: "Instagram" },
-  { icon: MessageCircle, href: "https://wa.me/51930572244", label: "WhatsApp" },
+  { icon: whatsappIcon, href: "https://wa.me/51930572244", label: "WhatsApp", isImage: true },
 ];
 
 export const Footer = () => {
@@ -37,7 +38,7 @@ export const Footer = () => {
       <div className="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/coffee-beans.png')]" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8 pb-16">
           
           {/* Column 1: Brand & Purpose */}
           <div className="space-y-8">
@@ -67,7 +68,15 @@ export const Footer = () => {
                   className="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#81C784] hover:text-[#1B1208] transition-all duration-300 border border-white/10 group"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5 group-hover:scale-110" />
+                  {social.isImage ? (
+                    <img 
+                      src={social.icon as string} 
+                      alt={social.label} 
+                      className="w-5 h-5 group-hover:scale-110 transition-transform brightness-0 invert" 
+                    />
+                  ) : (
+                    <social.icon className="w-5 h-5 group-hover:scale-110" />
+                  )}
                 </a>
               ))}
             </div>
@@ -125,24 +134,6 @@ export const Footer = () => {
                 ))}
               </div>
             </div>
-          </div>
-
-          {/* Column 4: Suscripción / CTA */}
-          <div className="bg-white/5 p-8 rounded-3xl border border-white/10 space-y-6">
-            <h4 className="font-heading text-lg font-bold text-[#F5F5F5]">Especialidad en tu Email</h4>
-            <p className="text-[#C7B299] text-xs leading-relaxed">
-              Únete a nuestra comunidad y recibe noticias sobre nuestras cosechas y ofertas exclusivas.
-            </p>
-            <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Tu correo electrónico" 
-                className="w-full bg-[#1B1208] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#81C784] transition-all"
-              />
-              <button className="w-full bg-[#81C784] text-[#1B1208] font-bold text-xs uppercase tracking-widest py-3 rounded-xl hover:bg-white transition-all shadow-glow">
-                Suscribirme
-              </button>
-            </form>
           </div>
 
         </div>

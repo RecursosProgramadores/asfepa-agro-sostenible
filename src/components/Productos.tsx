@@ -3,12 +3,16 @@ import { Check, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProductModal } from "./ProductModal";
 import productoImg from "@/assets/producto.png";
+import imgPergamino from "@/assets/PRODUCTOS/CAFEPERGAMINOSECO.png";
+import imgOroVerde from "@/assets/PRODUCTOS/CAFEOROVERDE.png";
+import imgTostado from "@/assets/PRODUCTOS/CAFETOSTADO(ACTUALIZADO).png";
+import imgTostadoMolido from "@/assets/PRODUCTOS/CAFETOSTADOYMOLIDO.png";
 
 const products = [
   {
     name: "Café Pergamino",
     description: "Café producido por los socios manejado con buenas prácticas agrícolas y procesos de calidad en cosecha y post cosecha.",
-    image: productoImg,
+    image: imgPergamino,
     price: "Según bolsa de valores",
     unit: "por quintal",
     features: [
@@ -17,11 +21,21 @@ const products = [
       "Fermentación aeróbica y anaeróbica"
     ],
     badge: "Exportación",
+    technicalDetails: [
+      { label: "Denominación", value: "Café Pergamino Seco" },
+      { label: "Variedades", value: "Geysha, Caturra, Catuaí, Catimor, Obata rojo" },
+      { label: "Altitud", value: "1,500 – 1,800 msnm" },
+      { label: "Origen", value: "Felipe Pinglo Alva, Luyando, Huánuco – Perú" },
+      { label: "Proceso", value: "Cosecha selectiva, fermentación controlada, secado solar, humedad 10-12%" },
+      { label: "Características", value: "Granos uniformes, limpios, sin defectos primarios visibles" },
+      { label: "Presentación", value: "Sacos de polipropileno de 50 kg" },
+      { label: "Vida Útil", value: "6 a 12 meses en condiciones óptimas" }
+    ]
   },
   {
     name: "Café Oro Verde",
     description: "Grano de alta calidad listo para el proceso de tostado, es el resultado del trabajo cuidadoso de nuestros productores.",
-    image: productoImg,
+    image: imgOroVerde,
     price: "Según bolsa de valores",
     unit: "por quintal",
     features: [
@@ -30,11 +44,21 @@ const products = [
       "Humedad adecuada para tostado"
     ],
     badge: "Premium",
+    technicalDetails: [
+      { label: "Denominación", value: "Café Oro Verde" },
+      { label: "Variedades", value: "Geysha, Caturra, Catuaí, Catimor, Obata rojo" },
+      { label: "Altitud", value: "1,500 – 1,800 msnm" },
+      { label: "Proceso", value: "Trilla mecánica, clasificación por tamaño y densidad, selección de defectos" },
+      { label: "Humedad", value: "10 % – 12 %" },
+      { label: "Perfil Sensorial", value: "Limpio, floral, frutal, dulce natural, acidez brillante" },
+      { label: "Presentación", value: "Sacos de yute o polipropileno de 50 kg" },
+      { label: "Rendimiento", value: "78 % – 82 % (de pergamino a oro verde)" }
+    ]
   },
   {
     name: "Café Tostado 1KG",
     description: "Ideal para consumo local y comercialización. Café de especialidad con notas excepcionales.",
-    image: productoImg,
+    image: imgTostado,
     price: "S/. 55.00",
     unit: "por 1kg",
     features: [
@@ -43,11 +67,20 @@ const products = [
       "Tostado artesanal"
     ],
     badge: "Popular",
+    technicalDetails: [
+      { label: "Denominación", value: "Café Tostado en Grano" },
+      { label: "Nivel de Tostado", value: "Medio / Medio oscuro (artesanal y controlado)" },
+      { label: "Perfil Sensorial", value: "Aroma floral/frutal, notas a jazmín y chocolate suave, cuerpo sedoso" },
+      { label: "Materia Prima", value: "Café oro verde seleccionado (humedad 10-12%)" },
+      { label: "Empaque", value: "Bolsa trilaminada con válvula desgasificadora" },
+      { label: "Vida Útil", value: "6 a 8 meses cerrado" },
+      { label: "Uso Recomendado", value: "Consumo doméstico, cafeterías, restaurantes" }
+    ]
   },
   {
     name: "Café Tostado y Molido 1KG",
     description: "Presentación lista para venta directa al consumidor, ideal para ferias y puntos de comercio local.",
-    image: productoImg,
+    image: imgTostadoMolido,
     price: "S/. 60.00",
     unit: "por 1kg",
     features: [
@@ -56,19 +89,16 @@ const products = [
       "Listo para preparar"
     ],
     badge: "Artesanal",
-  },
-  {
-    name: "Café de Especialidad",
-    description: "Lotes seleccionados con puntajes superiores orientados a mercados premium, concursos y microlotes.",
-    image: productoImg,
-    price: "Consultar",
-    unit: "precio especial",
-    features: [
-      "Puntajes superiores a 85 SCA",
-      "Microlotes seleccionados",
-      "Trazabilidad completa"
-    ],
-    badge: "Premium",
+    technicalDetails: [
+      { label: "Denominación", value: "Café Tostado y Molido" },
+      { label: "Tipos de Molienda", value: "Gruesa (Prensa), Media (Filtro), Fina (Espresso)" },
+      { label: "Nivel de Tostado", value: "Medio / Medio oscuro" },
+      { label: "Perfil Sensorial", value: "Dulce balanceado, jazmín, frutas tropicales, chocolate suave" },
+      { label: "Materia Prima", value: "Café oro verde seleccionado" },
+      { label: "Empaque", value: "Bolsa trilaminada con válvula desgasificadora" },
+      { label: "Vida Útil", value: "6 meses (consumir en 30 días una vez abierto)" },
+      { label: "Uso Recomendado", value: "Métodos de filtro, italiana, prensa francesa, espresso" }
+    ]
   },
 ];
 
@@ -87,10 +117,10 @@ export const Productos = () => {
   };
 
   return (
-    <section id="productos" className="section-padding bg-card">
+    <section id="productos" className="section-padding bg-card overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16 reveal">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             Nuestros Productos
           </span>
@@ -104,7 +134,7 @@ export const Productos = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:max-w-4xl lg:mx-auto gap-4 sm:gap-6 lg:gap-8 reveal-stagger">
           {products.map((product, index) => (
             <div
               key={product.name}
@@ -112,13 +142,13 @@ export const Productos = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Image */}
-              <div className="relative h-48 sm:h-56 overflow-hidden">
+              <div className="relative h-48 sm:h-56 overflow-hidden bg-muted/20 p-6 flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-coffee-dark/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-coffee-dark/60 via-transparent to-transparent" />
                 
                 {/* Badge */}
                 <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
@@ -127,15 +157,7 @@ export const Productos = () => {
                   </span>
                 </div>
 
-                {/* Price */}
-                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
-                  <span className="font-heading text-lg sm:text-xl font-bold text-cream">
-                    {product.price}
-                  </span>
-                  <span className="text-cream/80 text-xs sm:text-sm ml-1">
-                    {product.unit}
-                  </span>
-                </div>
+                {/* Removed Price Section */}
               </div>
 
               {/* Content */}

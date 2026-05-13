@@ -8,7 +8,7 @@ export const NosotrosSummary = () => {
     <section className="section-padding bg-background overflow-hidden relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 animate-fade-up">
+          <div className="space-y-6 reveal">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
               Sobre Nosotros
             </span>
@@ -20,7 +20,7 @@ export const NosotrosSummary = () => {
               ASFEPA es más que una asociación; somos una familia de productores dedicados a cultivar el mejor café de las alturas de Huánuco, Perú, bajo prácticas agrosostenibles que respetan nuestra tierra y nuestra gente.
             </p>
             
-            <div className="grid sm:grid-cols-2 gap-4 pt-4">
+            <div className="grid sm:grid-cols-2 gap-4 pt-4 reveal-stagger">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-leaf-light/10 flex items-center justify-center">
                   <Leaf className="w-5 h-5 text-leaf-light" />
@@ -51,7 +51,7 @@ export const NosotrosSummary = () => {
             </div>
           </div>
 
-          <div className="relative group animate-fade-up delay-200">
+          <div className="relative group reveal">
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-leaf-light/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-70" />
             <div className="relative rounded-2xl overflow-hidden aspect-video shadow-elevated">
               <img 

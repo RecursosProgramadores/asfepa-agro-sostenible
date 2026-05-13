@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send, Facebook, Instagram, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import whatsappIcon from "@/assets/whatsapp.svg";
 
 const contactInfo = [
   {
@@ -11,10 +12,11 @@ const contactInfo = [
     href: "tel:+51930572244",
   },
   {
-    icon: MessageCircle,
+    icon: whatsappIcon,
     label: "WhatsApp",
     value: "+51 930 572 244",
     href: "https://wa.me/51930572244",
+    isImage: true,
   },
   {
     icon: Mail,
@@ -39,7 +41,7 @@ const contactInfo = [
 const socialLinks = [
   { icon: Facebook, href: "https://facebook.com/asfepa", label: "Facebook" },
   { icon: Instagram, href: "https://instagram.com/asfepa", label: "Instagram" },
-  { icon: MessageCircle, href: "https://wa.me/51930572244", label: "WhatsApp" },
+  { icon: whatsappIcon, href: "https://wa.me/51930572244", label: "WhatsApp", isImage: true },
 ];
 
 export const Contacto = () => {
@@ -60,26 +62,24 @@ export const Contacto = () => {
     };
 
     const whatsappMessage = encodeURIComponent(
-      `¡Hola APARY! ☕\n\n` +
-      `He enviado un mensaje desde el sitio web:\n` +
-      `--------------------------------\n` +
+      `*¡NUEVA CONSULTA DESDE LA WEB APARY!* ☕\n\n` +
       `👤 *Nombre:* ${data.nombre}\n` +
-      `📞 *Teléfono:* ${data.telefono}\n` +
+      `📞 *WhatsApp:* ${data.telefono}\n` +
       `📧 *Email:* ${data.email}\n` +
-      `📝 *Asunto:* ${data.asunto}\n` +
-      `💬 *Mensaje:* ${data.mensaje}\n` +
+      `📝 *Asunto:* ${data.asunto}\n\n` +
+      `💬 *Mensaje:* \n${data.mensaje}\n\n` +
       `--------------------------------\n` +
-      `Quedo a la espera de su respuesta. ¡Gracias!`
+      `_Enviado desde el formulario de contacto._`
     );
 
-    // Simulate a small delay for UX
+    // Simulate a small delay for better UX
     await new Promise(resolve => setTimeout(resolve, 800));
     
     window.open(`https://wa.me/51930572244?text=${whatsappMessage}`, "_blank");
     
     toast({
-      title: "Redirigiendo a WhatsApp",
-      description: "Estamos abriendo el chat para enviar tu mensaje.",
+      title: "Solicitud procesada",
+      description: "Redirigiendo a WhatsApp para enviar tu mensaje.",
     });
     
     setIsSubmitting(false);
@@ -87,10 +87,10 @@ export const Contacto = () => {
   };
 
   return (
-    <section id="contacto" className="section-padding bg-card">
+    <section id="contacto" className="section-padding bg-card overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16 reveal">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             Contacto
           </span>
@@ -105,7 +105,7 @@ export const Contacto = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Form */}
-          <div className="bg-background rounded-2xl p-8 lg:p-10 shadow-soft">
+          <div className="bg-background rounded-2xl p-8 lg:p-10 shadow-soft reveal">
             <h3 className="font-heading text-2xl font-bold text-foreground mb-6">
               Envíanos un Mensaje
             </h3>
@@ -190,7 +190,7 @@ export const Contacto = () => {
                   </span>
                 ) : (
                   <span className="flex items-center gap-2">
-                    <MessageCircle className="w-4 h-4" />
+                    <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 brightness-0 invert" />
                     Enviar a WhatsApp
                   </span>
                 )}
@@ -209,7 +209,11 @@ export const Contacto = () => {
                   className="flex items-start gap-4 p-4 rounded-xl bg-background hover:bg-muted transition-colors group"
                 >
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <item.icon className="w-5 h-5 text-primary" />
+                    {(item as any).isImage ? (
+                      <img src={item.icon as string} alt={item.label} className="w-6 h-6 text-primary" />
+                    ) : (
+                      <item.icon className="w-5 h-5 text-primary" />
+                    )}
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground mb-1">
@@ -238,7 +242,11 @@ export const Contacto = () => {
                     className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                     aria-label={social.label}
                   >
-                    <social.icon className="w-5 h-5" />
+                    {(social as any).isImage ? (
+                      <img src={social.icon as string} alt={social.label} className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    ) : (
+                      <social.icon className="w-5 h-5" />
+                    )}
                   </a>
                 ))}
               </div>

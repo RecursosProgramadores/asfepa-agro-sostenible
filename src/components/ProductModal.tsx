@@ -15,6 +15,7 @@ interface ProductModalProps {
     image: string;
     price: string;
     unit: string;
+    technicalDetails?: { label: string; value: string }[];
   } | null;
 }
 
@@ -32,7 +33,6 @@ export const ProductModal = ({ isOpen, onClose, product }: ProductModalProps) =>
       `Me interesa adquirir el siguiente producto:\n` +
       `--------------------------------\n` +
       `📦 *Producto:* ${product.name}\n` +
-      `💰 *Precio:* ${product.price} (${product.unit})\n` +
       `🔢 *Cantidad:* ${quantity}\n` +
       `--------------------------------\n` +
       `Por favor, quisiera coordinar los detalles del pedido y el envío.\n\n` +
@@ -48,16 +48,16 @@ export const ProductModal = ({ isOpen, onClose, product }: ProductModalProps) =>
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl p-0 overflow-hidden border-none bg-background rounded-3xl shadow-elevated">
-        <div className="grid lg:grid-cols-2">
+      <DialogContent className="max-w-4xl p-0 border-none bg-background rounded-3xl shadow-elevated max-h-[90vh] overflow-y-auto">
+        <div className="grid lg:grid-cols-2 min-h-[500px]">
           {/* Image Side */}
-          <div className="relative h-64 lg:h-auto bg-muted/30">
+          <div className="relative h-72 lg:h-full bg-muted/20 p-8 flex items-center justify-center">
             <img 
               src={product.image} 
               alt={product.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain drop-shadow-2xl"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
             <button 
               onClick={onClose}
               className="absolute top-4 left-4 lg:hidden w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-foreground shadow-sm"
@@ -76,10 +76,6 @@ export const ProductModal = ({ isOpen, onClose, product }: ProductModalProps) =>
                 <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground mt-2">
                   {product.name}
                 </h2>
-                <div className="flex items-center gap-2 mt-4">
-                  <span className="text-2xl font-bold text-primary">{product.price}</span>
-                  <span className="text-muted-foreground">{product.unit}</span>
-                </div>
               </div>
 
               <div className="space-y-4">
@@ -88,6 +84,21 @@ export const ProductModal = ({ isOpen, onClose, product }: ProductModalProps) =>
                 </p>
                 <div className="h-px bg-border w-full" />
               </div>
+
+              {product.technicalDetails && product.technicalDetails.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-sm font-bold text-foreground uppercase tracking-tight">Ficha Técnica</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 bg-muted/30 p-4 rounded-xl border border-border">
+                    {product.technicalDetails.map((detail, idx) => (
+                      <div key={idx} className="flex flex-col">
+                        <span className="text-[10px] text-muted-foreground uppercase tracking-widest font-semibold">{detail.label}</span>
+                        <span className="text-sm text-foreground font-medium">{detail.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="h-px bg-border w-full mt-4" />
+                </div>
+              )}
 
               <div className="space-y-4">
                 <label className="text-sm font-bold text-foreground uppercase tracking-tight">
